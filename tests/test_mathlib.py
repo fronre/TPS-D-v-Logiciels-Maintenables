@@ -1,9 +1,6 @@
+import pytest
 from src.mathlib import factorial
 
-def test_0_to_return_1():
-    factorial(0)
-    return 1
-
-def test_1_to_return_1():
-    factorial(1)
-    return 1
+@pytest.mark.parametrize("number", [0, 1])
+def test_factorial_0_or_1_return_1(number):
+    assert factorial(number) == 1
